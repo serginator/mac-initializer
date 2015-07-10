@@ -1,0 +1,249 @@
+#!/bin/bash
+
+EXIT=0
+
+funRVM() {
+    echo -e "*** Installing RVM ***"
+    sleep 1
+    \curl -sSL https://get.rvm.io | bash -s stable --ruby
+    echo -e "*** Installed RVM! ***"
+    sleep 2
+}
+
+funHomebrew() {
+    echo -e "*** Installing Homebrew ***"
+    sleep 1
+    ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+    echo -e "*** Installed Homebrew! ***"
+    sleep 2
+}
+
+funBrewPackages() {
+    echo -e "*** Installing Brew Packages ***"
+    sleep 1
+    brew tap phinze/cask
+    brew tap caskroom/versions
+    brew tap casidiablo/custom
+    brew install autoconf
+    brew install automake
+    brew install brew-cask
+    brew install cabextract
+    brew install closure-linter
+    brew install coreutils
+    brew install ffmpeg
+    brew install geoip
+    brew install gettext
+    brew install ghostscript
+    brew install git
+    brew install glib
+    brew install gmp
+    brew install gnutls
+    brew install grep
+    brew install heroku-toolbelt
+    brew install hub
+    brew install imagemagick
+    brew install keybase
+    brew install libgcrypt
+    brew install libffi
+    brew install libtasn1
+    brew install mongo
+    brew install nettle
+    brew install nmap
+    brew install node
+    brew install openssl
+    brew install pcre
+    brew install phantomjs
+    brew install python
+    brew install tree
+    brew install wget
+    brew install xz
+    brew cleanup # clean cache
+    echo -e "*** Installed Brew Packages! ***"
+    sleep 2
+}
+
+funCaskPackages() {
+    echo -e "*** Installing Cask Packages ***"
+    sleep 1
+    brew cask install atom
+    brew cask install calibre
+    brew cask install chromecast
+    brew cask install dropbox
+    brew cask install evernote
+    brew cask install firefox
+    brew cask install flash
+    brew cask install google-chrome
+    brew cask install gpgtools
+    brew cask install inkscape
+    brew cask install iterm2
+    brew cask install java #or java7
+    brew cask install jdownloader
+    brew cask install karabiner
+    brew cask install microsoft-lync
+    brew cask install macvim
+    brew cask install phpstorm
+    brew cask install popcorn-time
+    brew cask install qbittorrent
+    brew cask install radiant-player
+    brew cask install silverlight
+    brew cask install skype
+    brew cask install slack
+    brew cask install sourcetree
+    brew cask install spectacle
+    brew cask install spotify
+    brew cask install steam
+    brew cask install sublime-text
+    brew cask install the-unarchiver
+    brew cask install tunnelblick
+    brew cask install vagrant
+    brew cask install virtualbox
+    brew cask install vlc
+    brew cask install wireshark-dev
+    brew cask cleanup # clean cache
+    echo -e "*** Installed Cask Packages! ***"
+    sleep 2
+}
+
+funNPM() {
+    echo -e "*** Installing NPM Packages ***"
+    sleep 1
+    npm install -g yo
+    npm install -g bower
+    npm install -g grunt-cli
+    npm install -g gulp
+    npm install -g less
+    npm install -g coffee-script
+    npm install -g jshint
+    npm install -g node-inspector
+    echo -e "*** Installed NPM Packages! ***"
+    sleep 2
+}
+
+funAPM() {
+    echo -e "*** Installing Atom Packages ***"
+    sleep 1
+    apm install atom-beautify
+    apm install merge-conflicts
+    apm install minimap
+    apm install linter
+    apm install highlight-selected
+    apm install file-icons
+    apm install color-picker
+    apm install emmet
+    apm install git-plus
+    apm install nuclide-installer
+    echo -e "*** Installed Atom Packages! ***"
+    sleep 2
+}
+
+funOhMyZsh() {
+    echo -e "*** Installing Oh My Zsh ***"
+    sleep 1
+    sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+    echo -e "*** Installed Oh My Zsh! ***"
+    sleep 2
+}
+
+funScripts() {
+    echo -e "*** Still working on this option, sorry! ***"
+    sleep 2
+}
+
+funUpdateAll() {
+    echo -e "*** Updating brew packages ***"
+    sleep 1
+    brew update && brew upgrade --all
+    sleep 2
+    echo -e "*** Updating cask packages ***"
+    sleep 1
+    brew cask update
+    sleep 2
+    echo -e "*** Updating npm packages ***"
+    sleep 1
+    npm update -g
+    sleep 2
+    echo -e "*** Updating atom packages ***"
+    sleep 1
+    apm update
+    sleep 2
+    echo -e "*** Cleaning caches ***"
+    brew cleanup
+    brew cask cleanup
+    npm cache clean
+    apm clean
+    echo -e "*** Everything clean! ***"
+    sleep 2
+}
+
+clear
+while [ $EXIT==0 ]
+do
+    echo -e "*****************************************************************"
+	echo -e "*                        Mac Initializer                        *"
+	echo -e "*****************************************************************"
+	echo -e "*           Just select what do you want to install             *"
+    echo -e "*                   or install everything                       *"
+	echo -e "*****************************************************************"
+	echo -e "*                       Made by serginator                      *"
+	echo -e "*****************************************************************"
+	echo
+	echo -e "Options:"
+	echo -e "   1) RVM"
+	echo -e "   2) Homebrew"
+	echo -e "   3) Brew packages"
+	echo -e "   4) Brew cask packages"
+	echo -e "   5) NPM packages"
+	echo -e "   6) Atom packages"
+	echo -e "   7) Oh My Zsh"
+	echo -e "   8) My config and aliases for oh-my-zsh"
+	echo -e "   9) Everything"
+    echo -e "  10) Update all"
+	echo -e "   0) Exit"
+	
+    echo -n "What do you want to do? "
+	read OPTION
+    case $OPTION in
+    1 )
+        funRVM
+        ;;
+    2 )
+        funHomebrew
+        ;;
+    3 )
+        funBrewPackages
+        ;;
+    4 )
+        funCaskPackages
+        ;;
+    5 )
+        funNPM
+        ;;
+    6 )
+        funAPM
+        ;;
+    7 )
+        funOhMyZsh
+        ;;
+    8 )
+        funScripts
+        ;;
+    9 )
+        funRVM
+        funHomebrew
+        funBrewPackages
+        funCaskPackages
+        funNPM
+        funAPM
+        funOhMyZsh
+        funScripts
+        ;;
+    10 )
+        funUpdateAll
+        ;;
+    0 )
+        clear
+        echo "Good luck my friend!"
+        exit
+    esac
+    clear
+done
