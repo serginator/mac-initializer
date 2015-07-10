@@ -1,0 +1,44 @@
+#!/bin/bash
+
+RESTORE='\033[0m'
+RED='\033[00;31m'
+BLUE='\033[1;34m'
+
+LOCAL_BRANCHES=($(git for-each-ref --format=%\(refname:short\) refs/heads/))
+REMOTE_BRANCHES=($(git for-each-ref --format=%\(refname:short\) refs/remotes/origin))
+REMOTE_BRANCHES=(${REMOTE_BRANCHES[@]/origin\//""})
+
+result=""
+function item_index {
+    local element=$1
+
+    for i in "${!REMOTE_BRANCHES[@]}"; do
+        if [ ${REMOTE_BRANCHES[$i]} == $element ]; then
+            result=$i
+            return
+        fi
+    done
+    result=-1
+}
+
+must_delete=false
+
+if [ $# -gt 0 ] && [ $1 == "-d" ]; then
+    must_delete=true
+fi
+
+function process_branches {
+    for branch in "${LOCAL_BRANCHES[@]}"; do
+        item_index $branch
+        if [ $result == "-1" ]; then
+            echo -e "$branch <- ${RED}(No remote branch)${RESTORE}"
+            if $must_delete ; then
+                git branch -d $branch
+            fi
+        else
+            echo -e "$branch <- ${BLUE}(Remote OK)${RESTORE}"
+        fi
+    done
+}
+
+process_branches

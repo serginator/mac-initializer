@@ -1,0 +1,3 @@
+termcapinfo xterm* ti@:te@
+term screen-256color
+term xterm-256color

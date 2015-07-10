@@ -54,7 +54,7 @@ It runs the following command
 
 ### Install config and aliases
 
-It will copy file `.zshrc` and folder `.zshrc.d` to your $HOME, .gitconfig with several aliases, .bowerrc, and maybe more stuff in a future.
+It will copy `.zshrc` and `.zshrc.d` to your $HOME, `.gitconfig` with several aliases, `.bowerrc`, `.screenrc`, `.vimrc` and `.vim`, and maybe more stuff in a future.
 It also adds an alias `mac-init` which you can launch from anwhere to update your stuff
 
 ### Other stuff

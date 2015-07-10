@@ -1,0 +1,34 @@
+#!/bin/bash
+
+REMOTE_BRANCHES=($(git for-each-ref --format=%\(refname:short\) refs/remotes/origin))
+REMOTE_BRANCHES=(${REMOTE_BRANCHES[@]/origin\//""})
+
+result=""
+jira_issue=$1
+
+function item_index {
+
+    for i in "${!REMOTE_BRANCHES[@]}"; do
+    	if echo "${REMOTE_BRANCHES[$i]}" | grep -q "TVAPPS-$jira_issue"; then
+            result=$i
+            return
+        fi
+    done
+    result=-1
+}
+
+if [ $# -ne 1 ]; then
+	echo "Please provide a JIRA issue"
+	exit -1
+fi
+
+
+item_index
+
+if [ $result == "-1" ]; then
+	echo "No branch found for TVAPPS-$jira_issue"
+else
+	git checkout ${REMOTE_BRANCHES[$result]}
+fi
+
+
