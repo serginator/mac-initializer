@@ -1,6 +1,6 @@
 # Mac initializer
 
-The intention of this project is to have an initial setup on a clean Mac. However, you can choose what section to install (rvm, brew, brew packages, brew cask packages,npm packages, atom packages, oh-my-zsh configuration...) just answering y/n or commenting the code on `install.me`.
+The intention of this project is to have an initial setup on a clean Mac. However, you can choose what section to install (rvm, brew, brew packages, brew cask packages,npm packages, atom packages, oh-my-zsh configuration...).
 
 ## What does it install
 
