@@ -145,7 +145,25 @@ funOhMyZsh() {
 }
 
 funScripts() {
-    echo -e "*** Still working on this option, sorry! ***"
+    echo -e "*** Installing scripts ***"
+    CURRENT_FOLDER=`pwd`
+    BACKUP_FOLDER=".dotfiles_backup"
+    cd ~
+    rm -rf $BACKUP_FOLDER
+    mkdir $BACKUP_FOLDER
+    mv .bowerrc $BACKUP_FOLDER
+    mv .gitconfig $BACKUP_FOLDER
+    mv .zshrc $BACKUP_FOLDER
+    mv .zshrc.d $BACKUP_FOLDER/.zshrc.d
+    ln -s $CURRENT_FOLDER/dotfiles/bowerrc .bowerrc
+    ln -s $CURRENT_FOLDER/dotfiles/zshrc .zshrc
+    ln -s $CURRENT_FOLDER/dotfiles/gitconfig .gitconfig
+    ln -s $CURRENT_FOLDER/dotfiles/zshrc.d .zshrc.d
+    if [ -f ~/Dropbox/bash_aliases_private.zsh ]; then
+        ln -s ~/Dropbox/bash_aliases_private.zsh .zshrc.d/
+    fi
+    cd $CURRENT_FOLDER
+    echo -e "*** Installed scripts! ***"
     sleep 2
 }
 
