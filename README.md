@@ -52,4 +52,4 @@ It runs the following command
 
 ### Install config and aliases
 
-It will copy file `zshrc` and folder `zshrc.d` to your $HOME
+It will copy file `.zshrc` and folder `.zshrc.d` to your $HOME, and .gitconfig with several aliases, and .bowerrc, and maybe more stuff in a future.
