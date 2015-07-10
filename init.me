@@ -164,6 +164,7 @@ funScripts() {
     mv .zshrc.d $BACKUP_FOLDER/.zshrc.d
     mv .screenrc $BACKUP_FOLDER
     mv .vimrc $BACKUP_FOLDER
+    mv .osx $BACKUP_FOLDER
     
     # remove old folders
     rm .git-mods
@@ -175,6 +176,7 @@ funScripts() {
     ln -s $CURRENT_FOLDER/dotfiles/gitconfig .gitconfig
     ln -s $CURRENT_FOLDER/dotfiles/screenrc .screenrc
     ln -s $CURRENT_FOLDER/dotfiles/vimrc .vimrc
+    ln -s $CURRENT_FOLDER/dotfiles/osx .osx
     
     # link folders from dotfiles to real ones
     ln -s $CURRENT_FOLDER/dotfiles/zshrc.d .zshrc.d
@@ -188,6 +190,7 @@ funScripts() {
 
     # add mac-init alias
     echo "alias mac-init='cd `echo $CURRENT_FOLDER`; ./init.me'" >> .zshrc.d/mac-init.zsh
+    . ~/.osx
     cd $CURRENT_FOLDER
     echo -e "*** Installed scripts! ***"
     sleep 2
