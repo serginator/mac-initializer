@@ -160,7 +160,7 @@ funScripts() {
     ln -s $CURRENT_FOLDER/dotfiles/gitconfig .gitconfig
     ln -s $CURRENT_FOLDER/dotfiles/zshrc.d .zshrc.d
     if [ -f ~/Dropbox/bash_aliases_private.zsh ]; then
-        ln -s ~/Dropbox/bash_aliases_private.zsh .zshrc.d/
+        ln -fs ~/Dropbox/bash_aliases_private.zsh .zshrc.d/
     fi
     cd $CURRENT_FOLDER
     echo -e "*** Installed scripts! ***"
