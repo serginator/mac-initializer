@@ -20,7 +20,7 @@ ZSH_CUSTOM=$HOME/.zshrc.d
 
 # Look for plugins in ~/.oh-my-zsh/plugins/*
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
-plugins=(adb,bower,brew,brew-cask,cp,git,git-flow,github,grunt,heroku,nmap,node,npm,python,rsync,rvm,sublime,sudo,vagrant)
+plugins=(adb,bower,brew,brew-cask,cp,git,github,grunt,heroku,hub,nmap,node,npm,python,rsync,rvm,sublime,sudo,vagrant)
 
 # User configuration
 
