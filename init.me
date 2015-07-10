@@ -185,8 +185,13 @@ funUpdateAll() {
     echo -e "*** Updating atom packages ***"
     sleep 1
     apm update
+    echo -e "*** Everything updated! ***"
     sleep 2
+}
+
+funCleanCaches() {
     echo -e "*** Cleaning caches ***"
+    sleep 1
     brew cleanup
     brew cask cleanup
     npm cache clean
@@ -199,26 +204,27 @@ clear
 while [ $EXIT==0 ]
 do
     echo -e "*****************************************************************"
-	echo -e "*                        Mac Initializer                        *"
-	echo -e "*****************************************************************"
-	echo -e "*           Just select what do you want to install             *"
+    echo -e "*                        Mac Initializer                        *"
+    echo -e "*****************************************************************"
+    echo -e "*           Just select what do you want to install             *"
     echo -e "*                   or install everything                       *"
-	echo -e "*****************************************************************"
-	echo -e "*                       Made by serginator                      *"
-	echo -e "*****************************************************************"
-	echo
-	echo -e "Options:"
-	echo -e "   1) RVM                         2) Homebrew"
-	echo -e "   3) Brew packages               4) Brew cask packages"
-	echo -e "   5) NPM packages                6) Atom packages"
-	echo -e "   7) Oh My Zsh                   8) Config and aliases"
-	echo
+    echo -e "*****************************************************************"
+    echo -e "*                       Made by serginator                      *"
+    echo -e "*****************************************************************"
+    echo
+    echo -e "Options:"
+    echo -e "   1) RVM                         2) Homebrew"
+    echo -e "   3) Brew packages               4) Brew cask packages"
+    echo -e "   5) NPM packages                6) Atom packages"
+    echo -e "   7) Oh My Zsh                   8) Config and aliases"
+    echo
     echo -e "   9) Everything"
     echo -e "  10) Update all"
-	echo -e "   0) Exit"
+    echo -e "  11) Clean caches"
+    echo -e "   0) Exit"
 	
     echo -n "What do you want to do? "
-	read OPTION
+    read OPTION
     case $OPTION in
     1 )
         funRVM
@@ -256,6 +262,10 @@ do
         ;;
     10 )
         funUpdateAll
+        funCleanCaches
+        ;;
+    11 )
+        funCleanCaches
         ;;
     0 )
         clear
