@@ -2,6 +2,8 @@
 
 The intention of this project is to have an initial setup on a clean Mac. However, you can choose what section to install (rvm, brew, brew packages, brew cask packages,npm packages, atom packages, oh-my-zsh configuration...).
 
+Just run `init.me` file in a terminal.
+
 ## What does it install
 
 ### RVM
@@ -53,3 +55,5 @@ It runs the following command
 ### Install config and aliases
 
 It will copy file `.zshrc` and folder `.zshrc.d` to your $HOME, and .gitconfig with several aliases, and .bowerrc, and maybe more stuff in a future.
+It also adds an alias `mac-init` which you can launch from anwhere to update your stuff
+

@@ -163,6 +163,7 @@ funScripts() {
     if [ -f ~/Dropbox/bash_aliases_private.zsh ]; then
         ln -fs ~/Dropbox/bash_aliases_private.zsh .zshrc.d/
     fi
+    echo "alias mac-init='cd `echo $CURRENT_FOLDER`; ./init.me'" >> .zshrc.d/mac-init.zsh
     cd $CURRENT_FOLDER
     echo -e "*** Installed scripts! ***"
     sleep 2
