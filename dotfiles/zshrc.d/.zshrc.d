@@ -1,1 +1,0 @@
-/Users/serginator/projects/mine/mac-initializer/dotfiles/zshrc.d
