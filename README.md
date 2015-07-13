@@ -28,7 +28,7 @@ autoconf, automake, brew-cask, cabextract, closure-linter, coreutils, ffmpeg, ge
 Those are the packages it will install. Feel free to comment any line to avoid installing it
 
 ```
-atom, boot2docker, calibre, chromecast, dropbox, evernote, firefox, flash, google-chrome, gpgtools, inkscape, iterm2, java, jdownloader, karabiner, microsoft-lync, macvim, phpstorm, popcorn-time, qbittorrent, radiant-player, silverlight, skype, slack, sourcetree, spectacle, spotify, steam, sublime-text, the-unarchiver, tunnelblick, vagrant, virtualbox, vlc, wireshark-dev
+atom, boot2docker, calibre, chromecast, dropbox, evernote, firefox, flash, google-chrome, google-earth, gpgtools, inkscape, iterm2, java, jdownloader, karabiner, microsoft-lync, macvim, phpstorm, popcorn-time, qbittorrent, radiant-player, silverlight, skype, slack, sourcetree, spectacle, spotify, steam, sublime-text, the-unarchiver, tunnelblick, vagrant, virtualbox, vlc, wireshark-dev
 ```
 
 ### NPM packages
