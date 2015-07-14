@@ -16,8 +16,10 @@ alias grunt-debug='! f() { node-debug $(which grunt) $1; }; f'
 alias cls='echo -e \\033c'
 alias lsusbMac='system_profiler SPUSBDataType'
 alias screenMac='screen /dev/cu.SLAB_USBtoUART 115200'
+alias dockerIp='boot2docker ip 2>/dev/null'
 
 killPattern() {
   ps aux | grep $1 | awk '{print $2}' | xargs kill -9
 }
+
 
