@@ -20,7 +20,7 @@ Uses ruby to install it with
 Those are the packages it will install. Feel free to comment any line to avoid installing it
 
 ```
-autoconf, automake, brew-cask, cabextract, closure-linter, coreutils, ffmpeg, geoip, gettext, ghostscript, git, glib, gmp, gnutls, grep, heroku-toolbelt, htop, hub, imagemagick, keybase, libgcrypt, libffi, libtasn1, mongo, nettle, nmap, node, openssl, pcre, phantomjs, python, tree, wget, xz
+autoconf, automake, brew-cask, cabextract, closure-linter, coreutils, ffmpeg, geoip, gettext, ghostscript, git, glib, gmp, gnutls, grep, heroku-toolbelt, htop, hub, imagemagick, keybase, libgcrypt, libffi, libtasn1, mongo, nettle, nmap, node, openssl, pcre, phantomjs, protobuf, python, tree, wget, xz
 ```
 
 ### Brew Cask packages
