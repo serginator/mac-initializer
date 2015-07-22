@@ -216,7 +216,7 @@ funUpdateAll() {
     sleep 2
     echo -e "*** Updating atom packages ***"
     sleep 1
-    apm update
+    apm update --confirm=false
     echo -e "*** Everything updated! ***"
     sleep 2
 }
