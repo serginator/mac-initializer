@@ -167,6 +167,7 @@ funScripts() {
     mkdir $BACKUP_FOLDER
     mv .bowerrc $BACKUP_FOLDER
     mv .gitconfig $BACKUP_FOLDER
+    mv .gitignore $BACKUP_FOLDER
     mv .zshrc $BACKUP_FOLDER
     mv .zshrc.d $BACKUP_FOLDER/.zshrc.d
     mv .screenrc $BACKUP_FOLDER
@@ -181,6 +182,7 @@ funScripts() {
     ln -s $CURRENT_FOLDER/dotfiles/bowerrc .bowerrc
     ln -s $CURRENT_FOLDER/dotfiles/zshrc .zshrc
     ln -s $CURRENT_FOLDER/dotfiles/gitconfig .gitconfig
+    ln -s $CURRENT_FOLDER/dotfiles/gitignore .gitignore
     ln -s $CURRENT_FOLDER/dotfiles/screenrc .screenrc
     ln -s $CURRENT_FOLDER/dotfiles/vimrc .vimrc
     ln -s $CURRENT_FOLDER/dotfiles/osx .osx
