@@ -38,7 +38,7 @@
   whodidthat="! f() { LINE=$1 FILE=$2 REVS=$3; for commit in $(git rev-list -n $REVS HEAD $FILE); do git blame -n -L$LINE,+1 $commit -- $FILE; done; }; f" ;git whodidthat 7 file.txt 3 ----> return 3 revs of who touched line 7 in file.txt
 
   ; usage: git cim "My commit message" <other commit params>
-  cim = "! f() { MESSAGE=\"$1\"; shift; BRANCH=`git rev-parse --abbrev-ref HEAD`; ISSUE=`echo \"$BRANCH\" | grep -E '*\\/TVAPPS-[\\d]+*' | cut -d \"-\" -f 2`; if [ -n \"${ISSUE}\" ]; then MESSAGE=\"TVAPPS-$ISSUE $MESSAGE\"; fi; git commit -m\"$MESSAGE\" $@; }; f"
+  cim ="! f() { JIRA_PROJECT=`cat .jira-project`; MESSAGE=\"$1\"; shift; BRANCH=`git rev-parse --abbrev-ref HEAD`; if [ -n \"$JIRA_PROJECT\" ]; then ISSUE=`echo \"$BRANCH\" | grep -E \"$JIRA_PROJECT-[\\d]*\" | cut -d \"-\" -f 2`; fi; if [ -n \"${ISSUE}\" ]; then MESSAGE=\"$JIRA_PROJECT-$ISSUE $MESSAGE\"; fi; git commit -m\"$MESSAGE\" $@; }; f"
   dev = "! git checkout develop; git pull origin develop"
   ; usage: git new-branch feature 1234 short-desc // feature/TVAPPS-1234-short-desc
   ; usage: git new-branch feature short-desc // feature/short-desc
@@ -87,4 +87,3 @@
 
 [hub]
   host = pdihub.hi.inet
-
