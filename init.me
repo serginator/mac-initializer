@@ -18,12 +18,19 @@ funHomebrew() {
     sleep 2
 }
 
+funUntapTap() {
+    echo -e "*** Untap and tap brew repos ***"
+    sleep 1
+    brew untap phinze/cask && brew tap phinze/cask
+    brew untap caskroom/versions && brew tap caskroom/versions
+    brew untap casidiablo/custom && brew tap casidiablo/custom
+    sleep 2
+}
+
 funBrewPackages() {
     echo -e "*** Installing Brew Packages ***"
     sleep 1
-    brew tap phinze/cask
-    brew tap caskroom/versions
-    brew tap casidiablo/custom
+    funUntapTap
     brew install android-platform-tools
     brew install autoconf
     brew install automake
@@ -209,6 +216,7 @@ funScripts() {
 }
 
 funUpdateAll() {
+    funUntapTap
     echo -e "*** Updating brew packages ***"
     sleep 1
     brew update && brew upgrade --all
@@ -219,8 +227,8 @@ funUpdateAll() {
     sleep 2
     echo -e "*** Updating Node.js stable (using n) and NPM ***"
     sleep 1
-    n stable
-    npm install -g npm
+    sudo n stable
+    curl -L https://www.npmjs.com/install.sh | sudo sh
     sleep 2
     echo -e "*** Updating npm packages ***"
     sleep 1
@@ -245,6 +253,8 @@ funCleanCaches() {
 }
 
 clear
+echo "Sudoing first"
+sudo echo ""
 while [ $EXIT==0 ]
 do
     echo -e "*****************************************************************"
