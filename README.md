@@ -36,7 +36,7 @@ atom, boot2docker, calibre, chromecast, dropbox, evernote, firefox, flash, googl
 Those are the packages it will install. Feel free to comment any line to avoid installing it
 
 ```
-yo, bower, grunt-cli, gulp, less, coffee-script, jshint, node-inspector
+yo (generator-polymer also), bower, grunt-cli, gulp, less, coffee-script, jshint, node-inspector, babel
 ```
 
 ### Atom packages
