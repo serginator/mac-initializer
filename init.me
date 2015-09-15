@@ -115,6 +115,7 @@ funCaskPackages() {
 funNPM() {
     echo -e "*** Installing NPM Packages ***"
     sleep 1
+    npm install -g n
     npm install -g yo
     npm install -g bower
     npm install -g grunt-cli
@@ -215,6 +216,11 @@ funUpdateAll() {
     echo -e "*** Updating cask packages ***"
     sleep 1
     brew cask update
+    sleep 2
+    echo -e "*** Updating Node.js stable (using n) and NPM ***"
+    sleep 1
+    n stable
+    npm install -g npm
     sleep 2
     echo -e "*** Updating npm packages ***"
     sleep 1
