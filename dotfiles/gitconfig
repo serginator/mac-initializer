@@ -38,6 +38,7 @@
   removelocalmergedbranches = "! git branch -l --merged | grep -v '\\*\\|master\\|develop\\|release' | xargs -n 1 git branch -d"
   whodidthat="! f() { LINE=$1 FILE=$2 REVS=$3; for commit in $(git rev-list -n $REVS HEAD $FILE); do git blame -n -L$LINE,+1 $commit -- $FILE; done; }; f" ;git whodidthat 7 file.txt 3 ----> return 3 revs of who touched line 7 in file.txt
   search="! f() { git lg -i --grep=$1; }; f"
+  resettags="! f() { git tag -d $(git tag) && git fetch --tags; }; f"
 
   ; usage: git cim "My commit message" <other commit params>
   cim ="! f() { JIRA_PROJECT=`cat .jira-project`; MESSAGE=\"$1\"; shift; BRANCH=`git rev-parse --abbrev-ref HEAD`; if [ -n \"$JIRA_PROJECT\" ]; then ISSUE=`echo \"$BRANCH\" | grep -E \"$JIRA_PROJECT-[\\d]*\" | cut -d \"-\" -f 2`; fi; if [ -n \"${ISSUE}\" ]; then MESSAGE=\"$JIRA_PROJECT-$ISSUE $MESSAGE\"; fi; git commit -m\"$MESSAGE\" $@; }; f"
