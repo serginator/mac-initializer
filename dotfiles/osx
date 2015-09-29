@@ -95,6 +95,9 @@ if [[ OSX ]]; then
   # Finder: disable window and Get Info animations
   defaults write com.apple.finder DisableAllAnimations -bool true
 
+  # Finder: show hidden files
+  defaults write com.apple.finder AppleShowAllFiles YES
+
   # Finder: show all filename extensions
   defaults write NSGlobalDomain AppleShowAllExtensions -bool true
 
