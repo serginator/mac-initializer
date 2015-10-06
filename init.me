@@ -32,6 +32,7 @@ funBrewPackages() {
     sleep 1
     funUntapTap
     brew install android-platform-tools
+    brew install ant
     brew install autoconf
     brew install automake
     brew install brew-cask
@@ -125,6 +126,7 @@ funNPM() {
     npm install -g n
     npm install -g yo
     npm install -g bower
+    npm install -g eslint
     npm install -g grunt-cli
     npm install -g gulp
     npm install -g less
@@ -149,7 +151,6 @@ funAPM() {
     apm install color-picker
     apm install emmet
     apm install git-plus
-    apm install nuclide-installer
     echo -e "*** Installed Atom Packages! ***"
     sleep 2
 }

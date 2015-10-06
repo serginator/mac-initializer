@@ -20,7 +20,7 @@ Uses ruby to install it with
 Those are the packages it will install. Feel free to comment any line to avoid installing it
 
 ```
-android-platform-tools, autoconf, automake, brew-cask, cabextract, closure-linter, coreutils, ffmpeg, geoip, gettext, ghostscript, git, glib, gmp, gnutls, grep, heroku-toolbelt, htop, hub, imagemagick, keybase, libgcrypt, libffi, libtasn1, mongo, nettle, nmap, node, openssl, pcre, phantomjs, protobuf, python, ssh-copy-id, tree, wget, xz
+android-platform-tools, ant, autoconf, automake, brew-cask, cabextract, closure-linter, coreutils, ffmpeg, geoip, gettext, ghostscript, git, glib, gmp, gnutls, grep, heroku-toolbelt, htop, hub, imagemagick, keybase, libgcrypt, libffi, libtasn1, mongo, nettle, nmap, node, openssl, pcre, phantomjs, protobuf, python, ssh-copy-id, tree, wget, xz
 ```
 
 ### Brew Cask packages
@@ -36,7 +36,7 @@ atom, boot2docker, calibre, chromecast, dropbox, evernote, firefox, flash, googl
 Those are the packages it will install. Feel free to comment any line to avoid installing it
 
 ```
-yo (generator-polymer also), bower, grunt-cli, gulp, less, coffee-script, jshint, node-inspector, babel, n
+yo (generator-polymer also), bower, eslint, grunt-cli, gulp, less, coffee-script, jshint, node-inspector, babel, n
 ```
 
 ### Atom packages
@@ -44,7 +44,7 @@ yo (generator-polymer also), bower, grunt-cli, gulp, less, coffee-script, jshint
 Those are the packages it will install. Feel free to comment any line to avoid installing it
 
 ```
-atom-beautify, merge-conflicts, minimap, linter, highlight-selected, file-icons, color-picker, emmet, git-plus, nuclide-installer
+atom-beautify, merge-conflicts, minimap, linter, highlight-selected, file-icons, color-picker, emmet, git-plus
 ```
 
 ### Install Oh My Zsh
