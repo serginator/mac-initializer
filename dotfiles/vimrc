@@ -46,6 +46,7 @@ set titlestring=VIM:\ %F
 let mapleader = ","
 set mouse=a
 set pastetoggle=<F2>
+set clipboard=unnamed
 
 set cc=80
 

@@ -1,4 +1,5 @@
 alias please='sudo'
+alias vim='/usr/local/bin/vim'
 alias install='brew install'
 alias tarsvn='tar --exclude={.svn,.idea} -z -c -v -f '
 alias targit='tar --exclude={.git,.idea} -z -c -v -f '
