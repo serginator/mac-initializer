@@ -59,7 +59,6 @@ funBrewPackages() {
     brew install mongo
     brew install nettle
     brew install nmap
-    brew install node
     brew install openssl
     brew install pcre
     brew install phantomjs
@@ -122,8 +121,9 @@ funCaskPackages() {
 }
 
 funNPM() {
-    echo -e "*** Installing NPM Packages ***"
+    echo -e "*** Installing NPM Packages and node ***"
     sleep 1
+    curl -L https://www.npmjs.com/install.sh | sudo sh
     npm install -g n
     npm install -g yo
     npm install -g bower
@@ -136,7 +136,8 @@ funNPM() {
     npm install -g node-inspector
     npm install -g generator-polymer
     npm install -g babel
-    echo -e "*** Installed NPM Packages! ***"
+    sudo n stable
+    echo -e "*** Installed NPM Packages and node! ***"
     sleep 2
 }
 
@@ -168,12 +169,12 @@ funScripts() {
     echo -e "*** Installing scripts ***"
     CURRENT_FOLDER=`pwd`
     BACKUP_FOLDER=".dotfiles_backup"
-    
+
     # init and update submodules
     git submodule init
     git submodule update
     cd ~
-    
+
     # backup your files
     rm -rf $BACKUP_FOLDER
     mkdir $BACKUP_FOLDER
@@ -185,7 +186,7 @@ funScripts() {
     mv .screenrc $BACKUP_FOLDER
     mv .vimrc $BACKUP_FOLDER
     mv .osx $BACKUP_FOLDER
-    
+
     # remove old folders
     rm .git-mods
     rm .vim
@@ -198,7 +199,7 @@ funScripts() {
     ln -s $CURRENT_FOLDER/dotfiles/screenrc .screenrc
     ln -s $CURRENT_FOLDER/dotfiles/vimrc .vimrc
     ln -s $CURRENT_FOLDER/dotfiles/osx .osx
-    
+
     # link folders from dotfiles to real ones
     ln -s $CURRENT_FOLDER/dotfiles/zshrc.d .zshrc.d
     ln -s $CURRENT_FOLDER/dotfiles/git-mods .git-mods
@@ -229,8 +230,8 @@ funUpdateAll() {
     sleep 2
     echo -e "*** Updating Node.js stable (using n) and NPM ***"
     sleep 1
-    sudo n stable
     curl -L https://www.npmjs.com/install.sh | sudo sh
+    sudo n stable
     sleep 2
     echo -e "*** Updating npm packages ***"
     sleep 1
@@ -278,7 +279,7 @@ do
     echo -e "  10) Update all"
     echo -e "  11) Clean caches"
     echo -e "   0) Exit"
-	
+
     echo -n "What do you want to do? "
     read OPTION
     case $OPTION in
