@@ -20,7 +20,7 @@ Uses ruby to install it with
 Those are the packages it will install. Feel free to comment any line to avoid installing it
 
 ```
-android-platform-tools, ant, autoconf, automake, brew-cask, cabextract, closure-linter, coreutils, ffmpeg, geoip, gettext, ghostscript, git, glib, gmp, gnutls, grep, heroku-toolbelt, htop, hub, imagemagick, keybase, libgcrypt, libffi, libtasn1, mongo, nettle, nmap, openssl, pcre, phantomjs, protobuf, python, ssh-copy-id, tree, vim, wget, xz
+android-platform-tools, ant, autoconf, automake, brew-cask, cabextract, closure-linter, coreutils, ffmpeg, geoip, gettext, ghostscript, git, glib, gmp, gnutls, grep, heroku-toolbelt, htop, hub, imagemagick, keybase, libgcrypt, libffi, libtasn1, mongo, nettle, nmap, openssl, optipng, pcre, phantomjs, protobuf, python, ssh-copy-id, tree, vim, wget, xz
 ```
 
 ### Brew Cask packages
