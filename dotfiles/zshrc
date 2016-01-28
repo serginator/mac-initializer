@@ -31,4 +31,5 @@ source $ZSH/oh-my-zsh.sh
 
 # ssh
 export SSH_KEY_PATH="~/.ssh/id_rsa"
+export COPYFILE_DISABLE=1
 
