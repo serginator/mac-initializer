@@ -21,6 +21,7 @@ alias g='git'
 alias gr='grunt'
 alias vncon='sudo /System/Library/CoreServices/RemoteManagement/ARDAgent.app/Contents/Resources/kickstart -activate -configure -access -on -configure -allowAccessFor -allUsers -configure -restart -agent -privs -all'
 alias vncoff='sudo /System/Library/CoreServices/RemoteManagement/ARDAgent.app/Contents/Resources/kickstart -deactivate -configure -access -off'
+alias random='! f() { openssl rand -base64 $1 }; f'
 
 update() {
   echo -e "*** brew/cask ***"
@@ -37,4 +38,5 @@ update() {
 killPattern() {
   ps aux | grep $1 | awk '{print $2}' | xargs kill -9
 }
+
 
