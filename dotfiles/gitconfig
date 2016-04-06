@@ -41,9 +41,9 @@
   resettags="! f() { git tag -d $(git tag) && git fetch --tags; }; f"
   # (review this) tar="! f() { BR=`git rev-parse --abbrev-ref HEAD`; OUT=`echo $BR | sed -E 's/\//--/'`; git archive $BR --format=tar --output=$OUT.tar; }; f"
 
-  old-cim ="! f() { JIRA_PROJECT=`cat .jira-project`; MESSAGE=\"$1\"; shift; BRANCH=`git rev-parse --abbrev-ref HEAD`; if [ -n \"$JIRA_PROJECT\" ]; then ISSUE=`echo \"$BRANCH\" | grep -E \"$JIRA_PROJECT-[\\d]*\" | cut -d \"-\" -f 2`; fi; if [ -n \"${ISSUE}\" ]; then MESSAGE=\"$JIRA_PROJECT-$ISSUE $MESSAGE\"; fi; git commit -m\"$MESSAGE\" $@; }; f"
   ; usage: git cim "My commit message" <other commit params>
-  cim ="! f() { MESSAGE=\"$1\"; shift; BRANCH=`git rev-parse --abbrev-ref HEAD`; JIRA_PROJECT=`echo \"$BRANCH\" | grep -Eo \"\\/(\\w+)\" | grep -Eo \"[^\\/]+\"`; if [ -n \"$JIRA_PROJECT\" ]; then ISSUE=`echo \"$BRANCH\" | grep -E \"$JIRA_PROJECT-[\\d]*\" | cut -d \"-\" -f 2`; fi; if [ -n \"${ISSUE}\" ]; then MESSAGE=\"$JIRA_PROJECT-$ISSUE $MESSAGE\"; fi; git commit -m\"$MESSAGE\" $@; }; f"
+  cim ="! f() { JIRA_PROJECT=`cat .jira-project`; MESSAGE=\"$1\"; shift; BRANCH=`git rev-parse --abbrev-ref HEAD`; if [ -n \"$JIRA_PROJECT\" ]; then ISSUE=`echo \"$BRANCH\" | grep -E \"$JIRA_PROJECT-[\\d]*\" | cut -d \"-\" -f 2`; fi; if [ -n \"${ISSUE}\" ]; then MESSAGE=\"$JIRA_PROJECT-$ISSUE $MESSAGE\"; fi; git commit -m\"$MESSAGE\" $@; }; f"
+  new-cim ="! f() { MESSAGE=\"$1\"; shift; BRANCH=`git rev-parse --abbrev-ref HEAD`; JIRA_PROJECT=`echo \"$BRANCH\" | grep -Eo \"\\/(\\w+)\" | grep -Eo \"[^\\/]+\"`; if [ -n \"$JIRA_PROJECT\" ]; then ISSUE=`echo \"$BRANCH\" | grep -E \"$JIRA_PROJECT-[\\d]*\" | cut -d \"-\" -f 2`; fi; if [ -n \"${ISSUE}\" ]; then MESSAGE=\"$JIRA_PROJECT-$ISSUE $MESSAGE\"; fi; git commit -m\"$MESSAGE\" $@; }; f"
   dev = "! git checkout develop; git pull origin develop"
   ; usage: git new-branch feature 1234 short-desc // feature/TVAPPS-1234-short-desc
   ; usage: git new-branch feature short-desc // feature/short-desc
