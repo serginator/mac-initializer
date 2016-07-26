@@ -58,6 +58,7 @@
   delbranch = "! f() { git dev; git br -d $1; git push origin :$1; }; f"
   renamebranch = "! f() { git branch -m $1 $2; git push origin :$1; git push --set-upstream origin $2; }; f"
   mergedev = "! git dev; git checkout -; git update; git merge develop"
+  mergeprev = "! git merge @{-1}"
   save-work = "! git diff > ~/Dropbox/AURIGAE/git-work/last-day;echo `git rev-parse --abbrev-ref HEAD` > ~/Dropbox/AURIGAE/git-work/branch-name"
   restart-work = "! git co develop;git pull;git co `cat ~/Dropbox/AURIGAE/git-work/branch-name`;git update;git apply ~/Dropbox/AURIGAE/git-work/last-day"
 
