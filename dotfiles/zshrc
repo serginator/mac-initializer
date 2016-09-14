@@ -24,8 +24,9 @@ plugins=(adb,bower,brew,brew-cask,cp,git,github,grunt,heroku,hub,nmap,node,npm,p
 
 # User configuration
 
-export PATH="/usr/local/opt/coreutils/libexec/gnubin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:`echo $HOME`/.rvm/bin"
+export PATH="/usr/local/opt/coreutils/libexec/gnubin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Developer/NVIDIA/CUDA-7.5/bin:`echo $HOME`/.rvm/bin"
 # export MANPATH="/usr/local/man:$MANPATH"
+export DYLD_LIBRARY_PATH=/Developer/NVIDIA/CUDA-7.5/lib:$DYLD_LIBRARY_PATH
 
 source $ZSH/oh-my-zsh.sh
 
@@ -33,5 +34,7 @@ source $ZSH/oh-my-zsh.sh
 export SSH_KEY_PATH="~/.ssh/id_rsa"
 export COPYFILE_DISABLE=1
 
-
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+
+. /Users/serginator/torch/install/bin/torch-activate
+

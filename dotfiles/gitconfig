@@ -32,7 +32,7 @@
   local-commits = "! f() { ref=$(git symbolic-ref HEAD); branch=${ref#refs/heads/}; git log --pretty='%C(bold blue)<%an>%Creset - %s' origin/${branch}..${branch} $*; }; f"
   track = "! git for-each-ref --format=\"%(refname:short) <- %(upstream:short)\" refs/heads | awk -F \"<-\" '{ printf $1 \"\\033[1;34m\" \"<- \"; if ($2 == \" \") printf \"\\033[1;31m(No tracking branch)\"; else printf $2; print \"\\033[0m\"}'"
   revertacommit = reset --hard HEAD~1
-  desc = "! f() { git stash --quiet --include-untracked;BRANCH=\"develop\";if [ -n \"$1\" ]; then BRANCH=\"$1\"; fi;git checkout \"$BRANCH\" --quiet;git pull --quiet origin \"$BRANCH\";git describe;git checkout - --quiet;git stash pop --quiet; }; f"
+  desc = "! f() { git stash --quiet --include-untracked;BRANCH=\"master\";if [ -n \"$1\" ]; then BRANCH=\"$1\"; fi;git checkout \"$BRANCH\" --quiet;git pull --quiet origin \"$BRANCH\";git describe;git checkout - --quiet;git stash pop --quiet; }; f"
   listmergedbranches = "! git branch -r --merged | grep -v '\\*\\|master\\|develop\\|release' | sed 's/origin\\///'"
   removemergedbranches = "listmergedbranches | xargs -n 1 git push --delete origin; git fetch origin --prune"
   removelocalmergedbranches = "! git branch -l --merged | grep -v '\\*\\|master\\|develop\\|release' | xargs -n 1 git branch -d"
@@ -44,7 +44,7 @@
   ; usage: git cim "My commit message" <other commit params>
   cim ="! f() { JIRA_PROJECT=`cat .jira-project`; MESSAGE=\"$1\"; shift; BRANCH=`git rev-parse --abbrev-ref HEAD`; if [ -n \"$JIRA_PROJECT\" ]; then ISSUE=`echo \"$BRANCH\" | grep -E \"$JIRA_PROJECT-[\\d]*\" | cut -d \"-\" -f 2`; fi; if [ -n \"${ISSUE}\" ]; then MESSAGE=\"$JIRA_PROJECT-$ISSUE $MESSAGE\"; fi; git commit -m\"$MESSAGE\" $@; }; f"
   new-cim ="! f() { MESSAGE=\"$1\"; shift; BRANCH=`git rev-parse --abbrev-ref HEAD`; JIRA_PROJECT=`echo \"$BRANCH\" | grep -Eo \"\\/(\\w+)\" | grep -Eo \"[^\\/]+\"`; if [ -n \"$JIRA_PROJECT\" ]; then ISSUE=`echo \"$BRANCH\" | grep -E \"$JIRA_PROJECT-[\\d]*\" | cut -d \"-\" -f 2`; fi; if [ -n \"${ISSUE}\" ]; then MESSAGE=\"$JIRA_PROJECT-$ISSUE $MESSAGE\"; fi; git commit -m\"$MESSAGE\" $@; }; f"
-  dev = "! git checkout develop; git pull origin develop"
+  dev = "! git checkout master; git pull origin master"
   ; usage: git new-branch feature 1234 short-desc // feature/TVAPPS-1234-short-desc
   ; usage: git new-branch feature short-desc // feature/short-desc
   new-branch = "! f() { TYPE=\"$1\"; shift; BRANCH=$TYPE/`git branch-name $@`; git co -b $BRANCH; git push origin $BRANCH; }; f"
@@ -58,8 +58,9 @@
   delbranch = "! f() { git dev; git br -d $1; git push origin :$1; }; f"
   renamebranch = "! f() { git branch -m $1 $2; git push origin :$1; git push --set-upstream origin $2; }; f"
   mergedev = "! git dev; git checkout -; git update; git merge develop"
+  mergeprev = "! git merge @{-1}"
   save-work = "! git diff > ~/Dropbox/AURIGAE/git-work/last-day;echo `git rev-parse --abbrev-ref HEAD` > ~/Dropbox/AURIGAE/git-work/branch-name"
-  restart-work = "! git co develop;git pull;git co `cat ~/Dropbox/AURIGAE/git-work/branch-name`;git update;git apply ~/Dropbox/AURIGAE/git-work/last-day"
+  restart-work = "! git co master;git pull;git co `cat ~/Dropbox/AURIGAE/git-work/branch-name`;git update;git apply ~/Dropbox/AURIGAE/git-work/last-day"
 
   ; Aux alias (used by other alias)
   branch-name = "! f() { BRANCH=\"$1\"; if [ -n \"${2}\" ]; then BRANCH=\"TVAPPS-$1-$2\"; fi; echo $BRANCH; }; f"
