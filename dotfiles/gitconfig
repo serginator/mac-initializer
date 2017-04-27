@@ -59,31 +59,33 @@
   renamebranch = "! f() { git branch -m $1 $2; git push origin :$1; git push --set-upstream origin $2; }; f"
   mergedev = "! git dev; git checkout -; git update; git merge develop"
   mergeprev = "! git merge @{-1}"
-  save-work = "! git diff > ~/Dropbox/AURIGAE/git-work/last-day;echo `git rev-parse --abbrev-ref HEAD` > ~/Dropbox/AURIGAE/git-work/branch-name"
-  restart-work = "! git co master;git pull;git co `cat ~/Dropbox/AURIGAE/git-work/branch-name`;git update;git apply ~/Dropbox/AURIGAE/git-work/last-day"
 
-  ; Aux alias (used by other alias)
+  save-work = "! f() { path=`git rev-parse --show-toplevel`;repo=`basename $path`;mkdir -p ~/Dropbox/AURIGAE/git-work/$repo;git diff > ~/Dropbox/AURIGAE/git-work/$repo/last-day;echo `git rev-parse --abbrev-ref HEAD` > ~/Dropbox/AURIGAE/git-work/$repo/branch-name; }; f"
+
+  restart-work = "! f() { path=`git rev-parse --show-toplevel`;repo=`basename $path`;git co master;git pull;git co `cat ~/Dropbox/AURIGAE/git-work/$repo/branch-name`;git update;git apply ~/Dropbox/AURIGAE/git-work/$repo/last-day; }; f"
+
+ ; Aux alias (used by other alias)
   branch-name = "! f() { BRANCH=\"$1\"; if [ -n \"${2}\" ]; then BRANCH=\"TVAPPS-$1-$2\"; fi; echo $BRANCH; }; f"
 
   srs30 = !git config user.name "Sergio Ruiz" && git config user.email sergio.ruiz@aurigae.com
   serginator = !git config user.name "Sergio Ruiz" && git config user.email serginator@gmail.com
 
-[url "http://github.com/"]
-  insteadOf = "gh:"
+#[url "http://github.com/"]
+#  insteadOf = "gh:"
 
-[url "http://pdihub.hi.inet/"]
-  insteadOf = "ph:"
+#[url "http://pdihub.hi.inet/"]
+#  insteadOf = "ph:"
 
-[url "git@github.com:"]
-  insteadOf = "https://github.com/"
-  insteadOf = "http://github.com/"
-  insteadOf = "gh:"
+#[url "git@github.com:"]
+#  insteadOf = "https://github.com/"
+#  insteadOf = "http://github.com/"
+#  insteadOf = "gh:"
 
-[url "git@github.com:serginator/"]
-  insteadOf = "gs:"
+#[url "git@github.com:serginator/"]
+#  insteadOf = "gs:"
 
-[url "http://github.com/serginator/"]
-  insteadOf = "gs:"
+#[url "http://github.com/serginator/"]
+#  insteadOf = "gs:"
 
 [push]
   default = current
@@ -93,3 +95,9 @@
 
 [hub]
   host = pdihub.hi.inet
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	required = true
+[credential]
+	helper = store

@@ -25,10 +25,10 @@ alias random='! f() { openssl rand -base64 $1 }; f'
 
 update() {
   echo -e "*** brew/cask ***"
-  brew update && brew upgrade --all && brew cask update
+  brew update && brew upgrade && brew cask update
   sleep 1
   echo -e "*** Node/npm ***"
-  sudo n stable && curl -L https://www.npmjs.com/install.sh | sudo sh && sudo npm update -g
+  sudo n stable && sudo npm upgrade -g
   sleep 1
   echo -e "*** apm ***"
   apm update --confirm=false
