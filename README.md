@@ -44,7 +44,7 @@ yo (generator-polymer also), bower, eslint, grunt-cli, gulp, less, coffee-script
 Those are the packages it will install. Feel free to comment any line to avoid installing it
 
 ```
-activate-power-mode, atom-clock, color-picker, linter, linter-jshint, merge-conflicts, minimap, python-debugger
+activate-power-mode, atom-clock, color-picker, linter, linter-eslint, linter-jshint, merge-conflicts, minimap, python-debugger
 ```
 
 ### Install Oh My Zsh
