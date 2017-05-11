@@ -48,3 +48,6 @@ fi
 if [ -f /Users/serginator/Downloads/google-cloud-sdk/completion.zsh.inc ]; then
   source '/Users/serginator/Downloads/google-cloud-sdk/completion.zsh.inc'
 fi
+
+# Git mods
+PATH="$PATH:$HOME/.git-mods"
