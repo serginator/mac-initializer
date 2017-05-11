@@ -36,7 +36,7 @@ atom, boot2docker, calibre, chromecast, dropbox, evernote, firefox, flash, googl
 Those are the packages it will install. Feel free to comment any line to avoid installing it
 
 ```
-yo (generator-polymer also), bower, eslint, grunt-cli, gulp, less, coffee-script, jshint, node-inspector, babel, n
+yo (generator-polymer also), bower, eslint, grunt-cli, gulp, less, coffee-script, jshint, node-inspector, babel, yarn, vue-cli, n
 ```
 
 ### Atom packages
@@ -44,7 +44,7 @@ yo (generator-polymer also), bower, eslint, grunt-cli, gulp, less, coffee-script
 Those are the packages it will install. Feel free to comment any line to avoid installing it
 
 ```
-atom-beautify, merge-conflicts, minimap, linter, highlight-selected, file-icons, color-picker, emmet, git-plus
+activate-power-mode, atom-clock, color-picker, linter, linter-jshint, merge-conflicts, minimap, python-debugger
 ```
 
 ### Install Oh My Zsh
