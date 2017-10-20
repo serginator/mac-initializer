@@ -60,9 +60,9 @@
   mergedev = "! git dev; git checkout -; git update; git merge develop"
   mergeprev = "! git merge @{-1}"
 
-  save-work = "! f() { path=`git rev-parse --show-toplevel`;repo=`basename $path`;mkdir -p ~/Dropbox/AURIGAE/git-work/$repo;git diff > ~/Dropbox/AURIGAE/git-work/$repo/last-day;echo `git rev-parse --abbrev-ref HEAD` > ~/Dropbox/AURIGAE/git-work/$repo/branch-name; }; f"
+  save-work = "! f() { path=`git rev-parse --show-toplevel`;repo=`basename $path`;mkdir -p ~/Dropbox/git-work/$repo;git diff > ~/Dropbox/git-work/$repo/last-day;echo `git rev-parse --abbrev-ref HEAD` > ~/Dropbox/git-work/$repo/branch-name; }; f"
 
-  restart-work = "! f() { path=`git rev-parse --show-toplevel`;repo=`basename $path`;git co master;git pull;git co `cat ~/Dropbox/AURIGAE/git-work/$repo/branch-name`;git update;git apply ~/Dropbox/AURIGAE/git-work/$repo/last-day; }; f"
+  restart-work = "! f() { path=`git rev-parse --show-toplevel`;repo=`basename $path`;git co master;git pull;git co `cat ~/Dropbox/git-work/$repo/branch-name`;git update;git apply ~/Dropbox/git-work/$repo/last-day; }; f"
 
  ; Aux alias (used by other alias)
   branch-name = "! f() { BRANCH=\"$1\"; if [ -n \"${2}\" ]; then BRANCH=\"TVAPPS-$1-$2\"; fi; echo $BRANCH; }; f"
@@ -72,9 +72,6 @@
 
 #[url "http://github.com/"]
 #  insteadOf = "gh:"
-
-#[url "http://pdihub.hi.inet/"]
-#  insteadOf = "ph:"
 
 #[url "git@github.com:"]
 #  insteadOf = "https://github.com/"
@@ -94,7 +91,7 @@
   ui = true
 
 [hub]
-  host = pdihub.hi.inet
+  host = github.com
 [filter "lfs"]
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f

@@ -51,3 +51,6 @@ fi
 
 # Git mods
 PATH="$PATH:$HOME/.git-mods"
+
+# npm binaries
+export PATH="$HOME/.npm-packages/bin:$PATH"
