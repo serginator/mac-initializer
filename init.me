@@ -48,6 +48,7 @@ funBrewPackages() {
     brew install gmp
     brew install gnutls
     brew install grep
+    brew install heroku
     brew install heroku-toolbelt
     brew install htop
     brew install hub
@@ -78,8 +79,10 @@ funBrewPackages() {
 funCaskPackages() {
     echo -e "*** Installing Cask Packages ***"
     sleep 1
+    brew cask install android-file-transfer
     brew cask install atom
     brew cask install boot2docker
+    brew cask install brackets
     brew cask install calibre
     brew cask install chromecast
     brew cask install dropbox
@@ -89,17 +92,17 @@ funCaskPackages() {
     brew cask install google-chrome
     brew cask install google-earth
     brew cask install gpgtools
+    brew cask install iterm2-beta
     brew cask install inkscape
-    brew cask install iterm2
     brew cask install java #or java7
     brew cask install jdownloader
     brew cask install karabiner
-    brew cask install microsoft-lync
     brew cask install macvim
     brew cask install phpstorm
     brew cask install popcorn-time
     brew cask install qbittorrent
     brew cask install radiant-player
+    brew cask install robomongo
     brew cask install silverlight
     brew cask install skype
     brew cask install slack
@@ -107,15 +110,20 @@ funCaskPackages() {
     brew cask install spectacle
     brew cask install spotify
     brew cask install steam
-    brew cask install sublime-text
+    brew cask install sublime-text3
+    brew cask install teamviewer
     brew cask install techstoreclub-simple-comic
     brew cask install the-unarchiver
     brew cask install tomighty
     brew cask install tunnelblick
     brew cask install vagrant
     brew cask install virtualbox
+    brew cask install visual-studio-code
     brew cask install vlc
     brew cask install wireshark-dev
+    brew cask install wkhtmltopdf
+    brew cask install yubikey-neo-manager
+    brew cask install yubikey-personalization-gui
     brew cask cleanup # clean cache
     echo -e "*** Installed Cask Packages! ***"
     sleep 2
