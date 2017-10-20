@@ -15,7 +15,9 @@ alias getlargestfiles='! f() { du -a $1 | sort -n -r | head -n 10; }; f'
 alias grunt-debug='! f() { node-debug $(which grunt) $1; }; f'
 alias cls='echo -e \\033c'
 alias lsusbMac='system_profiler SPUSBDataType'
-alias screenMac='screen -x stb-console || screen -S stb-console /dev/cu.SLAB_USBtoUART 115200'
+alias screenMacOld='screen -x stb-console || screen -S stb-console /dev/cu.SLAB_USBtoUART 115200'
+alias screenMacBlue='screen -x stb-console || screen -S stb-console /dev/cu.usbserial-A6007Jmx 115200'
+alias screenMacNew='screen -x stb-console || screen -S stb-console /dev/tty.usbserial 115200'
 alias dockerIp='boot2docker ip 2>/dev/null'
 alias g='git'
 alias gr='grunt'
@@ -25,10 +27,10 @@ alias random='! f() { openssl rand -base64 $1 }; f'
 
 update() {
   echo -e "*** brew/cask ***"
-  brew update && brew upgrade --all && brew cask update
+  brew update && brew upgrade
   sleep 1
   echo -e "*** Node/npm ***"
-  sudo n stable && curl -L https://www.npmjs.com/install.sh | sudo sh && sudo npm update -g
+  sudo n stable && sudo npm upgrade -g
   sleep 1
   echo -e "*** apm ***"
   apm update --confirm=false

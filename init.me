@@ -71,6 +71,7 @@ funBrewPackages() {
     brew install vim
     brew install wget
     brew install xz
+    brew install yarn
     brew cleanup # clean cache
     echo -e "*** Installed Brew Packages! ***"
     sleep 2
@@ -133,18 +134,8 @@ funNPM() {
     echo -e "*** Installing NPM Packages and node ***"
     sleep 1
     curl -L https://www.npmjs.com/install.sh | sudo sh
-    npm install -g n
-    npm install -g yo
-    npm install -g bower
-    npm install -g eslint
-    npm install -g grunt-cli
-    npm install -g gulp
-    npm install -g less
-    npm install -g coffee-script
-    npm install -g jshint
-    npm install -g node-inspector
-    npm install -g generator-polymer
-    npm install -g babel
+    npm install -g n yo bower eslint grunt-cli gulp less coffee-script jshint node-inspector generator-polymer babel yarn vue-cli
+
     sudo n stable
     echo -e "*** Installed NPM Packages and node! ***"
     sleep 2
@@ -153,15 +144,15 @@ funNPM() {
 funAPM() {
     echo -e "*** Installing Atom Packages ***"
     sleep 1
-    apm install atom-beautify
+    apm install activate-power-mode
+    apm install atom-clock
+    apm install color-picker
+    apm install linter
+    apm install linter-eslint
+    apm install linter-jshint
     apm install merge-conflicts
     apm install minimap
-    apm install linter
-    apm install highlight-selected
-    apm install file-icons
-    apm install color-picker
-    apm install emmet
-    apm install git-plus
+    apm install python-debugger
     echo -e "*** Installed Atom Packages! ***"
     sleep 2
 }
@@ -235,10 +226,6 @@ funUpdateAll() {
     sleep 1
     brew update && brew upgrade --all
     sleep 2
-    echo -e "*** Updating cask packages ***"
-    sleep 1
-    brew cask update
-    sleep 2
     echo -e "*** Updating Node.js stable (using n) and NPM ***"
     sleep 1
     curl -L https://www.npmjs.com/install.sh | sudo sh
@@ -261,6 +248,7 @@ funCleanCaches() {
     brew cleanup
     brew cask cleanup
     npm cache clean
+    yarn cache clean
     apm clean
     echo -e "*** Everything clean! ***"
     sleep 2
