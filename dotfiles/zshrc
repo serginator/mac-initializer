@@ -52,3 +52,7 @@ PATH="$PATH:$HOME/.git-mods"
 
 # npm binaries
 export PATH="$HOME/.npm-packages/bin:$PATH"
+
+#GPG
+export KEYID=0x5BA1DC635F07B886
+export GPG_TTY=$(tty)

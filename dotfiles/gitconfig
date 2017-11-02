@@ -1,6 +1,7 @@
 [user]
   name = Sergio Ruiz
   email = serginator@gmail.com
+  signingkey = 5BA1DC635F07B886
 
 [core]
   editor = vim
