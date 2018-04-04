@@ -31,8 +31,8 @@ funBrewPackages() {
     echo -e "*** Installing Brew Packages ***"
     sleep 1
     funUntapTap
-    brew install android-platform-tools
-    brew install ant
+    #brew install android-platform-tools #I think brew cask installs it better
+    #brew install ant
     brew install autoconf
     brew install automake
     brew install brew-cask
@@ -40,6 +40,8 @@ funBrewPackages() {
     brew install closure-linter
     brew install coreutils
     brew install ffmpeg
+    brew install freetype
+    brew install gdbm
     brew install geoip
     brew install gettext
     brew install ghostscript
@@ -48,15 +50,19 @@ funBrewPackages() {
     brew install glib
     brew install gmp
     brew install gnutls
+    #brew install gradle
     brew install grep
     brew install heroku
     brew install heroku-toolbelt
     brew install htop
     brew install hub
     brew install imagemagick
+    brew install jpeg
+    brew install jq
     brew install keybase
-    brew install libgcrypt
+    brew install lame
     brew install libffi
+    brew install libgcrypt
     brew install libtasn1
     #brew install mongo
     brew install nettle
@@ -64,10 +70,12 @@ funBrewPackages() {
     brew install openssl
     brew install optipng
     brew install pcre
+    brew install perl
     brew install phantomjs
     brew install protobuf
     brew install python
     brew install ssh-copy-id
+    brew install telnet
     brew install tree
     brew install vim
     brew install wget
@@ -82,27 +90,29 @@ funCaskPackages() {
     echo -e "*** Installing Cask Packages ***"
     sleep 1
     brew cask install android-file-transfer
+    brew cask install android-platform-tools
+    #brew cask install android-studio
     #brew cask install atom
     brew cask install boot2docker
     #brew cask install brackets
     brew cask install calibre
-    brew cask install chromecast
+    #brew cask install chromecast
     brew cask install dropbox
     brew cask install evernote
     brew cask install filezilla
     brew cask install firefox
-    brew cask install flash
+    #brew cask install flash
     brew cask install google-chrome
-    brew cask install google-earth
+    #brew cask install google-earth
     brew cask install gpgtools
     brew cask install iterm2
-    brew cask install inkscape
+    #brew cask install inkscape
     brew cask install java #or java7
     brew cask install jdownloader
     #brew cask install karabiner
     brew cask install macvim
     #brew cask install phpstorm
-    brew cask install popcorn-time
+    #brew cask install popcorn-time
     brew cask install qbittorrent
     brew cask install radiant-player
     #brew cask install robomongo
