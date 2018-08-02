@@ -36,7 +36,7 @@
   desc = "! f() { git stash --quiet --include-untracked;BRANCH=\"master\";if [ -n \"$1\" ]; then BRANCH=\"$1\"; fi;git checkout \"$BRANCH\" --quiet;git pull --quiet origin \"$BRANCH\";git describe;git checkout - --quiet;git stash pop --quiet; }; f"
   listmergedbranches = "! git branch -r --merged | grep -v '\\*\\|master\\|develop\\|release' | sed 's/origin\\///'"
   removemergedbranches = "listmergedbranches | xargs -n 1 git push --delete origin; git fetch origin --prune"
-  removelocalmergedbranches = "! git branch -l --merged | grep -v '\\*\\|master\\|develop\\|release' | xargs -n 1 git branch -d"
+  removelocalmergedbranches = "! git branch -l --merged | grep -v '\\*\\|master\\|develop\\|R\\|release' | xargs -n 1 git branch -d"
   whodidthat="! f() { LINE=$1 FILE=$2 REVS=$3; for commit in $(git rev-list -n $REVS HEAD $FILE); do git blame -n -L$LINE,+1 $commit -- $FILE; done; }; f" ;git whodidthat 7 file.txt 3 ----> return 3 revs of who touched line 7 in file.txt
   search="! f() { git lg -i --grep=$1; }; f"
   resettags="! f() { git tag -d $(git tag) && git fetch --tags; }; f"

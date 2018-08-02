@@ -30,7 +30,7 @@ update() {
   brew update && brew upgrade
   sleep 1
   echo -e "*** Node/npm ***"
-  sudo n stable && sudo npm upgrade -g
+  sudo n 8
   sleep 1
   #echo -e "*** apm ***"
   #apm update --confirm=false
