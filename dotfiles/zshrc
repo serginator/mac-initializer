@@ -56,3 +56,5 @@ export PATH="$HOME/.npm-packages/bin:$PATH"
 #GPG
 export KEYID=0x5BA1DC635F07B886
 export GPG_TTY=$(tty)
+export PATH="/usr/local/sbin:$PATH"
+export PATH="/usr/local/opt/ruby/bin:$PATH"
