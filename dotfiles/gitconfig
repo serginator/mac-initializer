@@ -43,19 +43,19 @@
   # (review this) tar="! f() { BR=`git rev-parse --abbrev-ref HEAD`; OUT=`echo $BR | sed -E 's/\//--/'`; git archive $BR --format=tar --output=$OUT.tar; }; f"
 
   ; usage: git cim "My commit message" <other commit params>
-  cim ="! f() { JIRA_PROJECT=`cat .jira-project`; MESSAGE=\"$1\"; shift; BRANCH=`git rev-parse --abbrev-ref HEAD`; if [ -n \"$JIRA_PROJECT\" ]; then ISSUE=`echo \"$BRANCH\" | grep -E \"$JIRA_PROJECT-[\\d]*\" | cut -d \"-\" -f 2`; fi; if [ -n \"${ISSUE}\" ]; then MESSAGE=\"$JIRA_PROJECT-$ISSUE $MESSAGE\"; fi; git commit -m\"$MESSAGE\" $@; }; f"
-  new-cim ="! f() { MESSAGE=\"$1\"; shift; BRANCH=`git rev-parse --abbrev-ref HEAD`; JIRA_PROJECT=`echo \"$BRANCH\" | grep -Eo \"\\/(\\w+)\" | grep -Eo \"[^\\/]+\"`; if [ -n \"$JIRA_PROJECT\" ]; then ISSUE=`echo \"$BRANCH\" | grep -E \"$JIRA_PROJECT-[\\d]*\" | cut -d \"-\" -f 2`; fi; if [ -n \"${ISSUE}\" ]; then MESSAGE=\"$JIRA_PROJECT-$ISSUE $MESSAGE\"; fi; git commit -m\"$MESSAGE\" $@; }; f"
-  dev = "! git checkout master; git pull origin master"
+  #cim ="! f() { JIRA_PROJECT=`cat .jira-project`; MESSAGE=\"$1\"; shift; BRANCH=`git rev-parse --abbrev-ref HEAD`; if [ -n \"$JIRA_PROJECT\" ]; then ISSUE=`echo \"$BRANCH\" | grep -E \"$JIRA_PROJECT-[\\d]*\" | cut -d \"-\" -f 2`; fi; if [ -n \"${ISSUE}\" ]; then MESSAGE=\"$JIRA_PROJECT-$ISSUE $MESSAGE\"; fi; git commit -m\"$MESSAGE\" $@; }; f"
+  #new-cim ="! f() { MESSAGE=\"$1\"; shift; BRANCH=`git rev-parse --abbrev-ref HEAD`; JIRA_PROJECT=`echo \"$BRANCH\" | grep -Eo \"\\/(\\w+)\" | grep -Eo \"[^\\/]+\"`; if [ -n \"$JIRA_PROJECT\" ]; then ISSUE=`echo \"$BRANCH\" | grep -E \"$JIRA_PROJECT-[\\d]*\" | cut -d \"-\" -f 2`; fi; if [ -n \"${ISSUE}\" ]; then MESSAGE=\"$JIRA_PROJECT-$ISSUE $MESSAGE\"; fi; git commit -m\"$MESSAGE\" $@; }; f"
+  #dev = "! git checkout master; git pull origin master"
   ; usage: git new-branch feature 1234 short-desc // feature/TVAPPS-1234-short-desc
   ; usage: git new-branch feature short-desc // feature/short-desc
-  new-branch = "! f() { TYPE=\"$1\"; shift; BRANCH=$TYPE/`git branch-name $@`; git co -b $BRANCH; git push origin $BRANCH; }; f"
+  #new-branch = "! f() { TYPE=\"$1\"; shift; BRANCH=$TYPE/`git branch-name $@`; git co -b $BRANCH; git push origin $BRANCH; }; f"
   ; usage: git feature 1234 short-desc or git feature short-desc
-  feature = "! f() { git dev; git new-branch feature $@; }; f"
-  bug = "! f() { git dev; git new-branch bug $@; }; f"
-  subbug = "! f() { git update; git new-branch bug $@; }; f"
-  task = "! f() { git dev; git new-branch task $@; }; f"
-  subtask = "! f() { git update; git new-branch task $@; }; f"
-  hardening = "! f() { git dev; git new-branch hardening $@; }; f"
+  #feature = "! f() { git dev; git new-branch feature $@; }; f"
+  #bug = "! f() { git dev; git new-branch bug $@; }; f"
+  #subbug = "! f() { git update; git new-branch bug $@; }; f"
+  #task = "! f() { git dev; git new-branch task $@; }; f"
+  #subtask = "! f() { git update; git new-branch task $@; }; f"
+  #hardening = "! f() { git dev; git new-branch hardening $@; }; f"
   delbranch = "! f() { git dev; git br -d $1; git push origin :$1; }; f"
   renamebranch = "! f() { git branch -m $1 $2; git push origin :$1; git push --set-upstream origin $2; }; f"
   mergedev = "! git dev; git checkout -; git update; git merge develop"
@@ -66,7 +66,7 @@
   restart-work = "! f() { path=`git rev-parse --show-toplevel`;repo=`basename $path`;git co master;git pull;git co `cat ~/Dropbox/git-work/$repo/branch-name`;git update;git apply ~/Dropbox/git-work/$repo/last-day; }; f"
 
  ; Aux alias (used by other alias)
-  branch-name = "! f() { BRANCH=\"$1\"; if [ -n \"${2}\" ]; then BRANCH=\"TVAPPS-$1-$2\"; fi; echo $BRANCH; }; f"
+  #branch-name = "! f() { BRANCH=\"$1\"; if [ -n \"${2}\" ]; then BRANCH=\"TVAPPS-$1-$2\"; fi; echo $BRANCH; }; f"
 
   srs30 = !git config user.name "Sergio Ruiz" && git config user.email sergio.ruiz@aurigae.com
   serginator = !git config user.name "Sergio Ruiz" && git config user.email serginator@gmail.com

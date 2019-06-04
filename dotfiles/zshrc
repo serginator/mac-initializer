@@ -58,3 +58,17 @@ export KEYID=0x5BA1DC635F07B886
 export GPG_TTY=$(tty)
 export PATH="/usr/local/sbin:$PATH"
 export PATH="/usr/local/opt/ruby/bin:$PATH"
+export PATH="/Users/srs30/Library/Python/2.7/bin:$PATH"
+export PATH="/Users/srs30/aps/bin:$PATH"
+
+powerstat() {
+    b=$(system_profiler SPPowerDataType)
+    amp=$(echo "$b" | grep 'Amperage (mA):' | cut -d ':' -f 2 | xargs)
+    volt=$(echo "$b" | grep 'Voltage (mV):' | cut -d ':' -f 2 | xargs)
+    power=$(($amp * $volt / 1000))
+    echo "$b" | grep --color=never -A 1 'Battery Information:'
+    echo "$b" | grep --color=never -A 1 'Amperage (mA)'
+    echo "      Total Power (mW): $power"
+    echo ""
+    echo "$b" | grep --color=never -A 99 'AC Charger Information:'
+}
