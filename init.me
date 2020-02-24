@@ -24,6 +24,7 @@ funUntapTap() {
     brew untap phinze/cask && brew tap phinze/cask
     brew untap caskroom/versions && brew tap caskroom/versions
     brew untap casidiablo/custom && brew tap casidiablo/custom
+    brew untap aws/tap && brew tap aws/tap
     sleep 2
 }
 
@@ -35,10 +36,12 @@ funBrewPackages() {
     #brew install ant
     brew install autoconf
     brew install automake
+    brew install aws-sam-cli
     brew install brew-cask
     brew install cabextract
     brew install closure-linter
     brew install coreutils
+    # brew install docker docker-machine
     brew install ffmpeg
     brew install freetype
     brew install gdbm
@@ -73,6 +76,7 @@ funBrewPackages() {
     brew install perl
     #brew install phantomjs
     brew install protobuf
+    brew install pyenv
     brew install python
     brew install ssh-copy-id
     brew install telnet
@@ -103,6 +107,7 @@ funCaskPackages() {
     #brew cask install chromecast
     brew cask install cyberduck # browse S3 and other servers
     brew cask install discord
+    brew cask install docker
     brew cask install dropbox
     brew cask install evernote
     brew cask install filezilla
@@ -144,7 +149,7 @@ funCaskPackages() {
     #brew cask install tunnelblick
     #brew cask install tweeten
     #brew cask install vagrant
-    #brew cask install virtualbox
+    brew cask install virtualbox
     brew cask install visual-studio-code
     brew cask install vlc
     brew cask install wireshark

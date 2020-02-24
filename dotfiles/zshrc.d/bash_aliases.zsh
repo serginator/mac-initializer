@@ -27,7 +27,8 @@ alias random='! f() { openssl rand -base64 $1 }; f'
 
 update() {
   echo -e "*** brew/cask ***"
-  brew update && brew upgrade
+  brew upgrade
+  brew cask upgrade
   sleep 1
   echo -e "*** Node/npm ***"
   sudo n 10
