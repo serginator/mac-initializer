@@ -28,7 +28,7 @@ alias random='! f() { openssl rand -base64 $1 }; f'
 update() {
   echo -e "*** brew/cask ***"
   brew upgrade
-  brew cask upgrade
+  brew upgrade --cask
   sleep 1
   echo -e "*** Node/npm ***"
   sudo n 10
@@ -42,4 +42,4 @@ killPattern() {
   ps aux | grep $1 | awk '{print $2}' | xargs kill -9
 }
 
-
+alias kali='docker run --privileged --cap-add=NET_ADMIN --sysctl net.ipv6.conf.all.disable_ipv6=0 -ti kali'
