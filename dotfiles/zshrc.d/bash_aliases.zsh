@@ -31,7 +31,7 @@ update() {
   brew upgrade --cask
   sleep 1
   echo -e "*** Node/npm ***"
-  sudo n 10
+  sudo n 14
   sleep 1
   #echo -e "*** apm ***"
   #apm update --confirm=false
