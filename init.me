@@ -25,6 +25,8 @@ funUntapTap() {
     brew untap caskroom/versions && brew tap caskroom/versions
     brew untap casidiablo/custom && brew tap casidiablo/custom
     brew untap aws/tap && brew tap aws/tap
+    brew untap homebrew/cask-drivers && brew tap homebrew/cask-drivers
+    brew untap heroku/brew && brew tap heroku/brew
     sleep 2
 }
 
@@ -173,6 +175,7 @@ funNPM() {
     npm install -g n yo bower eslint grunt-cli gulp less coffee-script jshint node-inspector generator-polymer babel yarn vue-cli
 
     sudo n stable
+    sudo n prune
     echo -e "*** Installed NPM Packages and node! ***"
     sleep 2
 }
@@ -266,6 +269,7 @@ funUpdateAll() {
     sleep 1
     curl -L https://www.npmjs.com/install.sh | sudo sh
     sudo n stable
+    sudo n prune
     sleep 2
     echo -e "*** Updating npm packages ***"
     sleep 1

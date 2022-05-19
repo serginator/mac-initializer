@@ -1,7 +1,7 @@
 [user]
   name = Sergio Ruiz
   email = serginator@gmail.com
-  signingkey = 5BA1DC635F07B886
+  signingKey = 5BA1DC635F07B886
 
 [core]
   editor = vim
@@ -56,10 +56,9 @@
   #task = "! f() { git dev; git new-branch task $@; }; f"
   #subtask = "! f() { git update; git new-branch task $@; }; f"
   #hardening = "! f() { git dev; git new-branch hardening $@; }; f"
-  delbranch = "! f() { git dev; git br -d $1; git push origin :$1; }; f"
+  delbranch = "! f() { git br -d $1; git push origin :$1; }; f"
   renamebranch = "! f() { git branch -m $1 $2; git push origin :$1; git push --set-upstream origin $2; }; f"
-  mergedev = "! git dev; git checkout -; git update; git merge develop"
-  mergeprev = "! git merge @{-1}"
+  deltag = "! f() { git tag -d $1; git push --delete origin $1; }; f"
 
   save-work = "! f() { path=`git rev-parse --show-toplevel`;repo=`basename $path`;mkdir -p ~/Dropbox/git-work/$repo;git diff > ~/Dropbox/git-work/$repo/last-day;echo `git rev-parse --abbrev-ref HEAD` > ~/Dropbox/git-work/$repo/branch-name; }; f"
 
@@ -102,3 +101,5 @@
 	helper = store
 [pull]
 	rebase = false
+[commit]
+	gpgsign = false
