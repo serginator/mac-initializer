@@ -34,7 +34,6 @@ funBrewPackages() {
     echo -e "*** Installing Brew Packages ***"
     sleep 1
     funUntapTap
-    #brew install android-platform-tools #I think brew cask installs it better
     #brew install ant
     brew install annie # for downloading from youtube, bilibili, etc
     brew install autoconf
@@ -99,71 +98,76 @@ funBrewPackages() {
 funCaskPackages() {
     echo -e "*** Installing Cask Packages ***"
     sleep 1
-    brew cask install android-file-transfer
-    brew cask install android-platform-tools
-    #brew cask install android-studio
-    #brew cask install atom
-    brew cask install brave-browser # secure browser
-    #brew cask install boot2docker
-    #brew cask install brackets
-    brew cask install calibre
-    #brew cask install chromecast
+    brew cask install android-file-transfer # to browse files of android device
+    brew cask install android-platform-tools # adb and other stuff
+    #brew cask install android-studio # Android IDE
+    brew cask install arduino # IDE to build arduino projects
+    #brew cask install atom # IDE
+    brew cask install bootstrap-studio # to build websites
+    #brew cask install brave-browser # secure browser
+    #brew cask install brackets # IDE
+    brew cask install calibre # ebook manager
+    #brew cask install chromedriver # chrome driver for selenium
     brew cask install cyberduck # browse S3 and other servers
-    brew cask install discord
-    brew cask install docker
-    brew cask install dropbox
-    brew cask install evernote
-    brew cask install filezilla
-    brew cask install firefox
-    #brew cask install flash
-    brew cask install google-chrome
-    #brew cask install google-earth-pro
-    #brew cask install gpgtools
-    brew cask install iterm2
-    #brew cask install inkscape
+    brew cask install discord # chat app
+    brew cask install docker # docker client
+    brew cask install dropbox # cloud storage
+    brew cask install evernote # note taking
+    brew cask install filezilla # file transfer
+    brew cask install firefox # web browser
+    brew cask install google-chrome # web browser
+    #brew cask install google-earth-pro # view earth in 3D
+    #brew cask install gpgtools # GPG tools
+    brew cask install iterm2 # terminal
+    #brew cask install inkscape # vector graphics editor
     brew cask install java #or java7
-    brew cask install jdownloader
-    #brew cask install karabiner
-    brew cask install macvim
-    brew cask install microsoft-teams
-    brew cask install mudlet # MUD Client
-    #brew cask install phpstorm
-    #brew cask install popcorn-time
+    brew cask install jdownloader # download manager
+    #brew cask install karabiner # keyboard settings
+    brew cask install macvim # vim for mac
+    brew cask install microsoft-teams # team communication
+    #brew cask install mudlet # MUD Client
+    brew cask install ngrok # tunneling
+    brew cask install opera # web browser
+    #brew cask install phpstorm # PHP IDE
+    #brew cask install poedit # PO editor
+    #brew cask install popcorn-time # video streaming
     brew cask install postman # for testing REST APIs
-    brew cask install private-internet-access
-    brew cask install qbittorrent
-    brew cask install radiant-player
-    brew cask install rar
+    brew cask install private-internet-access # VPN
+    brew cask install qbittorrent # torrent client
+    #brew cask install radiant-player # video streaming
+    brew cask install rar # rar archiver
     brew cask install reaper # to record instruments
-    #brew cask install robomongo
-    brew cask install silverlight
-    brew cask install skype
-    brew cask install slack
-    #brew cask install sourcetree
-    #brew cask install spectacle
-    brew cask install spotify
-    brew cask install steam
-    #brew cask install sublime-text3
-    brew cask install teamviewer
-    #brew cask install tftpserver
-    brew cask install the-unarchiver
-    #brew cask install tomighty
-    brew cask install tor-browser
+    #brew cask install robomongo # MongoDB client
+    #brew cask install silverlight # Silverlight
+    #brew cask install silicon-labs-vcp-driver # VCP driver
+    brew cask install skype # chat app
+    #brew cask install slack # chat app
+    #brew cask install sourcetree # source control
+    #brew cask install spectacle # window manager
+    brew cask install spotify # music streaming
+    brew cask install steam # gaming
+    #brew cask install sublime-text3 # text editor
+    brew cask install teamviewer # remote desktop
+    #brew cask install tftpserver # TFTP server
+    brew cask install the-unarchiver # unarchiver
+    #brew cask install tomighty # time tracker
+    brew cask install tor-browser # browser
     brew cask install tripmode # to handle connections
-    #brew cask install tunnelblick
-    #brew cask install tweeten
-    #brew cask install vagrant
-    brew cask install virtualbox
-    brew cask install visual-studio-code
-    brew cask install vlc
-    brew cask install wireshark
-    brew cask install whatsapp
-    #brew cask install wireshark-dev
-    brew cask install wkhtmltopdf
-    #brew cask install yubikey-neo-manager
-    #brew cask install yubikey-personalization-gui
-    #brew cask install zeplin
-    brew cask cleanup # clean cache
+    brew cask install tunnelblick # VPN
+    #brew cask install tweeten # twitter client
+    #brew cask install twitch # streaming
+    #brew cask install vagrant # virtual machine
+    #brew cask install virtualbox # virtual machine
+    brew cask install visual-studio-code # Best IDE
+    brew cask install vlc # video player
+    #brew cask install wireshark # network sniffer
+    #brew cask install whatsapp # chat app
+    #brew cask install wireshark-dev # network sniffer
+    brew cask install wkhtmltopdf # to convert html to pdf
+    #brew cask install yubikey-neo-manager # YubiKey manager
+    #brew cask install yubikey-personalization-gui # YubiKey manager
+    #brew cask install zeplin # design tool
+    brew cask cleanup # clean cache after installing
     echo -e "*** Installed Cask Packages! ***"
     sleep 2
 }
@@ -352,7 +356,7 @@ do
         funBrewPackages
         funCaskPackages
         funNPM
-        funAPM
+        # funAPM
         funOhMyZsh
         funScripts
         ;;
