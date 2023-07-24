@@ -13,7 +13,7 @@ funRVM() {
 funHomebrew() {
     echo -e "*** Installing Homebrew ***"
     sleep 1
-    ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
     echo -e "*** Installed Homebrew! ***"
     sleep 2
 }
@@ -35,13 +35,13 @@ funBrewPackages() {
     sleep 1
     funUntapTap
     #brew install ant
-    brew install annie # for downloading from youtube, bilibili, etc
+    #brew install annie # for downloading from youtube, bilibili, etc
     brew install autoconf
     brew install automake
     brew install aws-sam-cli
     brew install brew-cask
     brew install cabextract
-    brew install closure-linter
+    #brew install closure-linter
     brew install coreutils
     # brew install docker docker-machine
     brew install ffmpeg
