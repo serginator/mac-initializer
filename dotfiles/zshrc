@@ -79,3 +79,6 @@ fi
 export PATH=$PATH:$HOME/.platformio/penv/bin
 
 export PATH=$PATH:/opt/homebrew/bin
+
+# For using Fuzzy
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
