@@ -30,10 +30,10 @@ update() {
   brew upgrade
   brew upgrade --cask
   sleep 1
-  echo -e "*** Node/npm ***"
-  sudo n stable
-  sudo n prune
-  sleep 1
+  #echo -e "*** Node/npm ***"
+  #sudo n stable
+  #sudo n prune
+  #sleep 1
   #echo -e "*** apm ***"
   #apm update --confirm=false
   #sleep 1
