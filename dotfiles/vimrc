@@ -99,3 +99,5 @@ cnoreabbrev nowrap set nowrap
 
 let g:SuperTabDefaultCompletionType = "<c-n>"
 
+set rtp+=/opt/homebrew/opt/fzf
+

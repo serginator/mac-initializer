@@ -82,6 +82,8 @@ export PATH=/opt/homebrew/bin:/opt/homebrew/sbin:$PATH
 
 export PATH=$PATH:/Users/sergioruiz/Library/Python/3.9/bin
 
+export PATH=$PATH:$HOME/.local/bin
+
 # For using Fuzzy
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
@@ -93,9 +95,19 @@ export PATH=$PATH:/Users/sergioruiz/Library/Android/sdk/emulator:/Users/sergioru
 export PATH="/opt/homebrew/opt/libxslt/bin:$PATH"
 
 #Go Lang
-export PATH=$PATH:/usr/local/go/bin
+export PATH=$PATH:/usr/local/go/bin:$HOME/go/bin
+export GOPRIVATE=github.com/taxfix/*
+
+#act
+export PATH=$PATH:/Users/sergioruiz/bin
 
 if command -v ngrok &>/dev/null; then
   eval "$(ngrok completion)"
 fi
 
+export OPENAI_API_BASE='http://localhost:11667/v1'
+export OPENAI_BASE_URL='http://localhost:12545/v1'
+export OPENAI_MODEL_NAME='phi3:latest'
+export DEFAULT_MODEL='phi3:latest'
+
+if [ -f "/Users/sergioruiz/.config/fabric/fabric-bootstrap.inc" ]; then . "/Users/sergioruiz/.config/fabric/fabric-bootstrap.inc"; fi

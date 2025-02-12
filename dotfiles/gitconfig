@@ -67,7 +67,6 @@
  ; Aux alias (used by other alias)
   #branch-name = "! f() { BRANCH=\"$1\"; if [ -n \"${2}\" ]; then BRANCH=\"TVAPPS-$1-$2\"; fi; echo $BRANCH; }; f"
 
-  srs30 = !git config user.name "Sergio Ruiz" && git config user.email sergio.ruiz@aurigae.com
   serginator = !git config user.name "Sergio Ruiz" && git config user.email serginator@gmail.com
 
 #[url "http://github.com/"]
@@ -102,4 +101,13 @@
 [pull]
 	rebase = false
 [commit]
-	gpgsign = false
+    gpgsign = false
+
+[url "ssh://git@gitlab.com/"]
+	insteadOf = https://gitlab.com/
+[url "ssh://git@github.com/"]
+    insteadOf = https://github.com/
+[init]
+	defaultBranch = main
+[safe]
+	directory = *

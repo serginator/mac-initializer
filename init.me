@@ -27,6 +27,7 @@ funUntapTap() {
     brew untap aws/tap && brew tap aws/tap
     brew untap homebrew/cask-drivers && brew tap homebrew/cask-drivers
     brew untap heroku/brew && brew tap heroku/brew
+    brew untap mongodb/brew && brew tap mongodb/brew
     sleep 2
 }
 
@@ -43,13 +44,11 @@ funBrewPackages() {
     brew install cabextract
     #brew install closure-linter
     brew install coreutils
-    # brew install docker docker-machine
+    brew install docker docker-machine
     brew install ffmpeg
     brew install freetype
     brew install fzf
     brew install gdbm
-    brew install geoip
-    brew install gettext
     brew install ghostscript
     brew install git
     brew install git-lfs
@@ -61,7 +60,6 @@ funBrewPackages() {
     #brew install heroku
     brew install heroku-toolbelt
     brew install htop
-    brew install hub
     brew install imagemagick
     brew install jpeg
     brew install jq
@@ -78,6 +76,9 @@ funBrewPackages() {
     brew install pcre
     brew install perl
     #brew install phantomjs
+    #brew install podman
+    #brew install podman-compose
+    #brew install podman-desktop
     brew install protobuf
     brew install pyenv
     brew install python
@@ -85,8 +86,8 @@ funBrewPackages() {
     brew install ssh-copy-id
     brew install telnet
     #brew install tiny-fugue
-    brew install tor
-    brew install torsocks
+    #brew install tor
+    #brew install torsocks
     brew install tree
     brew install vim
     brew install wget
@@ -100,75 +101,83 @@ funBrewPackages() {
 funCaskPackages() {
     echo -e "*** Installing Cask Packages ***"
     sleep 1
-    brew cask install android-file-transfer # to browse files of android device
-    brew cask install android-platform-tools # adb and other stuff
-    #brew cask install android-studio # Android IDE
-    brew cask install arduino # IDE to build arduino projects
-    #brew cask install atom # IDE
-    brew cask install bootstrap-studio # to build websites
-    #brew cask install brave-browser # secure browser
-    #brew cask install brackets # IDE
-    brew cask install calibre # ebook manager
-    #brew cask install chromedriver # chrome driver for selenium
-    brew cask install cyberduck # browse S3 and other servers
-    brew cask install discord # chat app
-    brew cask install docker # docker client
-    brew cask install dropbox # cloud storage
-    brew cask install evernote # note taking
-    brew cask install filezilla # file transfer
-    brew cask install firefox # web browser
-    brew cask install google-chrome # web browser
-    #brew cask install google-earth-pro # view earth in 3D
-    #brew cask install gpgtools # GPG tools
-    brew cask install iterm2 # terminal
-    #brew cask install inkscape # vector graphics editor
-    brew cask install java #or java7
-    brew cask install jdownloader # download manager
-    #brew cask install karabiner # keyboard settings
-    brew cask install macvim # vim for mac
-    brew cask install microsoft-teams # team communication
-    #brew cask install mudlet # MUD Client
-    brew cask install ngrok # tunneling
-    brew cask install opera # web browser
-    #brew cask install phpstorm # PHP IDE
-    #brew cask install poedit # PO editor
-    #brew cask install popcorn-time # video streaming
-    brew cask install postman # for testing REST APIs
-    brew cask install private-internet-access # VPN
-    brew cask install qbittorrent # torrent client
-    #brew cask install radiant-player # video streaming
-    brew cask install rar # rar archiver
-    brew cask install reaper # to record instruments
-    #brew cask install robomongo # MongoDB client
-    #brew cask install silverlight # Silverlight
-    #brew cask install silicon-labs-vcp-driver # VCP driver
-    brew cask install skype # chat app
-    #brew cask install slack # chat app
-    #brew cask install sourcetree # source control
-    #brew cask install spectacle # window manager
-    brew cask install spotify # music streaming
-    brew cask install steam # gaming
-    #brew cask install sublime-text3 # text editor
-    brew cask install teamviewer # remote desktop
-    #brew cask install tftpserver # TFTP server
-    brew cask install the-unarchiver # unarchiver
-    #brew cask install tomighty # time tracker
-    brew cask install tor-browser # browser
-    brew cask install tripmode # to handle connections
-    brew cask install tunnelblick # VPN
-    #brew cask install tweeten # twitter client
-    #brew cask install twitch # streaming
-    #brew cask install vagrant # virtual machine
-    #brew cask install virtualbox # virtual machine
-    brew cask install visual-studio-code # Best IDE
-    brew cask install vlc # video player
-    #brew cask install wireshark # network sniffer
-    #brew cask install whatsapp # chat app
-    #brew cask install wireshark-dev # network sniffer
-    brew cask install wkhtmltopdf # to convert html to pdf
-    #brew cask install yubikey-neo-manager # YubiKey manager
-    #brew cask install yubikey-personalization-gui # YubiKey manager
-    #brew cask install zeplin # design tool
+    brew install --cask android-file-transfer # to browse files of android device
+    brew install --cask android-platform-tools # adb and other stuff
+    #brew install --cask android-studio # Android IDE
+    #brew install --cask arduino # IDE to build arduino projects
+    #brew install --cask atom # IDE
+    brew install --cask beekeeper-studio # SQL client
+    brew install --cask bootstrap-studio # to build websites
+    #brew install --cask brave-browser # secure browser
+    #brew install --cask brackets # IDE
+    #brew install --cask calibre # ebook manager
+    brew install --cask chatgpt # chat app
+    #brew install --cask chromedriver # chrome driver for selenium
+    brew install --cask cursor # Cursor AI IDE
+    brew install --cask cyberduck # browse S3 and other servers
+    #brew install --cask discord # chat app
+    brew install --cask docker # docker client
+    #brew install --cask dropbox # cloud storage
+    brew install --cask evernote # note taking
+    brew install --cask filezilla # file transfer
+    brew install --cask firefox # web browser
+    brew install --cask gpt4all # chat app
+    brew install --cask google-chrome # web browser
+    #brew install --cask google-earth-pro # view earth in 3D
+    #brew install --cask gpgtools # GPG tools
+    brew install --cask iterm2 # terminal
+    #brew install --cask inkscape # vector graphics editor
+    brew install --cask java #or java7
+    #brew install --cask jdownloader # download manager
+    #brew install --cask karabiner # keyboard settings
+    brew install --cask macvim # vim for mac
+    #brew install --cask microsoft-teams # team communication
+    brew install --cask mongodb-compass
+    #brew install --cask mudlet # MUD Client
+    brew install --cask mysqlworkbench # MySQL client
+    brew install --cask ngrok # tunneling
+    brew install --cask notion # note taking
+    brew install --cask opera # web browser
+    #brew install --cask phpstorm # PHP IDE
+    #brew install --cask poedit # PO editor
+    #brew install --cask popcorn-time # video streaming
+    brew install --cask postman # for testing REST APIs
+    brew install --cask private-internet-access # VPN
+    #brew install --cask qbittorrent # torrent client
+    #brew install --cask radiant-player # video streaming
+    brew install --cask rar # rar archiver
+    #brew install --cask reaper # to record instruments
+    #brew install --cask robomongo # MongoDB client
+    #brew install --cask silverlight # Silverlight
+    #brew install --cask silicon-labs-vcp-driver # VCP driver
+    #brew install --cask skype # chat app
+    #brew install --cask slack # chat app
+    #brew install --cask sourcetree # source control
+    #brew install --cask spectacle # window manager
+    brew install --cask spotify # music streaming
+    #brew install --cask steam # gaming
+    #brew install --cask sublime-text3 # text editor
+    brew install --cask teamviewer # remote desktop
+    #brew install --cask tftpserver # TFTP server
+    brew install --cask the-unarchiver # unarchiver
+    #brew install --cask tomighty # time tracker
+    #brew install --cask tor-browser # browser
+    #brew install --cask tripmode # to handle connections
+    #brew install --cask tunnelblick # VPN
+    #brew install --cask tweeten # twitter client
+    #brew install --cask twitch # streaming
+    #brew install --cask vagrant # virtual machine
+    #brew install --cask virtualbox # virtual machine
+    brew install --cask visual-studio-code # Best IDE
+    brew install --cask vlc # video player
+    #brew install --cask wireshark # network sniffer
+    #brew install --cask whatsapp # chat app
+    #brew install --cask wireshark-dev # network sniffer
+    brew install --cask wkhtmltopdf # to convert html to pdf
+    #brew install --cask yubikey-neo-manager # YubiKey manager
+    #brew install --cask yubikey-personalization-gui # YubiKey manager
+    brew install --cask zed # text editor
+    #brew install --cask zeplin # design tool
     brew cask cleanup # clean cache after installing
     echo -e "*** Installed Cask Packages! ***"
     sleep 2

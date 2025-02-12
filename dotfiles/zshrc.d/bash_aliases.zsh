@@ -44,3 +44,4 @@ killPattern() {
 }
 
 alias kali='docker run --privileged --cap-add=NET_ADMIN --sysctl net.ipv6.conf.all.disable_ipv6=0 -ti kali'
+alias \?\?='gh copilot suggest'
