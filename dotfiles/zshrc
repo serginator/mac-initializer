@@ -57,7 +57,7 @@ export PATH="$HOME/.npm-packages/bin:$PATH"
 export KEYID=0x5BA1DC635F07B886
 export GPG_TTY=$(tty)
 export PATH="/usr/local/sbin:$PATH"
-export PATH="/usr/local/opt/ruby/bin:$PATH"
+export PATH="/opt/homebrew/opt/ruby/bin:$PATH"
 export PATH="/Users/srs30/Library/Python/2.7/bin:$PATH"
 export PATH="/Users/srs30/aps/bin:$PATH"
 
@@ -72,25 +72,22 @@ powerstat() {
     echo ""
     echo "$b" | grep --color=never -A 99 'AC Charger Information:'
 }
-if command -v pyenv 1>/dev/null 2>&1; then
-  eval "$(pyenv init -)"
-fi
 
 export PATH=$PATH:$HOME/.platformio/penv/bin
 
 export PATH=/opt/homebrew/bin:/opt/homebrew/sbin:$PATH
 
-export PATH=$PATH:/Users/sergioruiz/Library/Python/3.9/bin
+export PATH=$PATH:/Users/sergio.ruiz/Library/Python/3.9/bin
 
 export PATH=$PATH:$HOME/.local/bin
 
 # For using Fuzzy
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+source <(fzf --zsh)
 
 # Android SDK
-export ANDROID_SDK_ROOT=/Users/sergioruiz/Library/Android/sdk
-export ANDROID_HOME=/Users/sergioruiz/Library/Android/sdk
-export PATH=$PATH:/Users/sergioruiz/Library/Android/sdk/emulator:/Users/sergioruiz/Library/Android/sdk/platform-tools
+export ANDROID_SDK_ROOT=/Users/sergio.ruiz/Library/Android/sdk
+export ANDROID_HOME=/Users/sergio.ruiz/Library/Android/sdk
+export PATH=$PATH:/Users/sergio.ruiz/Library/Android/sdk/emulator:/Users/sergio.ruiz/Library/Android/sdk/platform-tools
 
 export PATH="/opt/homebrew/opt/libxslt/bin:$PATH"
 
@@ -99,15 +96,61 @@ export PATH=$PATH:/usr/local/go/bin:$HOME/go/bin
 export GOPRIVATE=github.com/taxfix/*
 
 #act
-export PATH=$PATH:/Users/sergioruiz/bin
+export PATH=$PATH:/Users/sergio.ruiz/bin
 
 if command -v ngrok &>/dev/null; then
   eval "$(ngrok completion)"
 fi
 
-export OPENAI_API_BASE='http://localhost:11667/v1'
-export OPENAI_BASE_URL='http://localhost:12545/v1'
-export OPENAI_MODEL_NAME='phi3:latest'
-export DEFAULT_MODEL='phi3:latest'
+if command -v llm &>/dev/null; then
+  export OPENAI_API_KEY="$(llm keys get openai)"
+fi
 
-if [ -f "/Users/sergioruiz/.config/fabric/fabric-bootstrap.inc" ]; then . "/Users/sergioruiz/.config/fabric/fabric-bootstrap.inc"; fi
+# export OPENAI_API_BASE='http://localhost:11667/v1' # or 'http://localhost:10000', depending on the tool
+# export OPENAI_BASE_URL='http://localhost:12545/v1'
+# export OPENAI_MODEL_NAME='phi3:latest'
+# export DEFAULT_MODEL='phi3:latest'
+
+if [ -f "/Users/sergio.ruiz/.config/fabric/fabric-bootstrap.inc" ]; then . "/Users/sergio.ruiz/.config/fabric/fabric-bootstrap.inc"; fi
+export PATH="/opt/homebrew/opt/go@1.23/bin:$PATH"
+
+# Added by Windsurf
+export PATH="/Users/sergio.ruiz/.codeium/windsurf/bin:$PATH"
+
+source "$(brew --prefix)/share/google-cloud-sdk/path.zsh.inc"
+source "$(brew --prefix)/share/google-cloud-sdk/completion.zsh.inc"
+
+source $HOME/.zshrc.d/private.zsh
+
+
+[[ "$TERM_PROGRAM" == "kiro" ]] && . "$(kiro --locate-shell-integration-path zsh)"
+export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
+export PATH="$HOME/.local/bin:$PATH"
+
+# ---- pyenv (load last; keep hooks alive) ----
+export PYENV_ROOT="$HOME/.pyenv"
+# Ensure shims are before everything else that might provide python
+if [[ -d "$PYENV_ROOT" ]]; then
+  export PATH="$PYENV_ROOT/bin:$PYENV_ROOT/shims:$PATH"
+fi
+
+if command -v pyenv >/dev/null 2>&1; then
+  # Use zsh-specific init so the hook is created
+  eval "$(pyenv init - zsh)"
+  eval "$(pyenv virtualenv-init -)"
+
+  # Some tools (e.g. RVM/OMZ plugins) overwrite $chpwd_functions.
+  # Re-append the pyenv hook if it's missing.
+  typeset -ga chpwd_functions
+  if (( $+functions[_pyenv_virtualenv_hook] )); then
+    if [[ -z ${chpwd_functions[(r)_pyenv_virtualenv_hook]} ]]; then
+      chpwd_functions+=(_pyenv_virtualenv_hook)
+    fi
+  fi
+fi
+# ---- end pyenv ----
+# The following lines have been added by Docker Desktop to enable Docker CLI completions.
+fpath=(/Users/sergio.ruiz/.docker/completions $fpath)
+autoload -Uz compinit
+compinit
+# End of Docker CLI completions
